@@ -1,0 +1,178 @@
+ /*  if(numeroIntentos<=0){
+       alert("has excedido el numero de intentos -cuenta bloqueada-")
+       return;
+    }
+    const user=document.getElementById("usuario").value
+    const password=document.getElementById("contrasena").value
+    if(user && password){
+      let usuarioRegistrado=false
+      for(let i=0;i<usuarios.length;i++){
+         if(usuarios[i].usuarios===user && usuarios[i]===password){
+            usuarioActual=user;
+            usuarioRegistrado=true;
+            break;
+         }
+      }
+         if(usuarioRegistrado){
+            alert('¡Bienvenido!' + user)
+            document.getElementById("login").style.display="none"
+            document.getElementById("containerItems").style.display="flex"
+         }else{
+            numeroIntentos--
+            alert("Credenciales incorrectas. intentos restantes. "+numeroIntentos)
+         }
+       }else{
+      alert("por favor ingrese nombre de usuario y contraseña")
+       }
+      }  */
+
+
+
+
+ /* let a=document.createElement("input")
+   let b=document.createElement("input")
+   let c=document.createElement("input")
+   a.textContent=nuevoUsuario
+   b.textContent=nuevaContrasena
+   c.textContent=confirmarContrasena */
+
+   /* let formulario=document.createElement("div") */
+
+
+
+let registros = [];
+
+// Obtén una referencia al botón de registro
+let registro = document.getElementById("registro");
+
+registro.addEventListener("click", () => { 
+   // Obtén los valores de los campos del formulario de registro
+   let nuevoUsuario = document.getElementById("nuevoUsuario").value;
+   let nuevaContrasena = document.getElementById("nuevaContrasena").value;
+   let confirmarContrasena = document.getElementById("confirmarContrasena").value;
+   let correoElectronico = document.getElementById("Correo").value;
+   let monto = document.getElementById("monto").value;
+
+   // Realiza validación de los datos aquí si es necesario
+   if (nuevoUsuario && nuevaContrasena && nuevaContrasena === confirmarContrasena && correoElectronico && monto >= 100000) {
+       // Crea un objeto que representa el registro
+       let nuevoRegistro = {
+           usuario: nuevoUsuario,
+           contrasena: nuevaContrasena,
+           correo: correoElectronico,
+           monto: monto
+       };
+
+       // Agrega el nuevo registro al arreglo
+       registros.push(nuevoRegistro);
+
+       // Limpia los campos del formulario
+       document.getElementById("nuevoUsuario").value = "";
+       document.getElementById("nuevaContrasena").value = "";
+       document.getElementById("confirmarContrasena").value = "";
+       document.getElementById("Correo").value = "";
+       document.getElementById("monto").value = "";
+
+       // Opcional: muestra un mensaje de éxito al usuario
+       alert("Registro exitoso. Ahora puedes iniciar sesión.");
+   } else {
+       // Opcional: muestra un mensaje de error al usuario si la validación falla
+       alert("Por favor, completa los campos correctamente.");
+   }
+});
+
+
+ /* const nuevoUsuario=document.getElementById("nuevoUsuario").value;
+    const nuevaContrasena=document.getElementById("nuevaContrasena").value;
+    const confirmarContrasena=document.getElementById("confirmarContrasena").value;
+    const monto=document.getElementById("monto").value;
+    objetoRegistro={nuevoUsuario,nuevaContrasena,confirmarContrasena,monto}
+    registros.push(objetoRegistro)
+    if(monto>=100000 && nuevaContrasena==confirmarContrasena){  
+        registros.push(objetoRegistro)
+        alert("Registro")
+    }  */  
+
+
+
+let intentosIngreso = 0;
+let cuentaBloqueada = false;
+function iniciarSesion(){
+        if (cuentaBloqueada) {
+            alert("Tu cuenta está bloqueada. Contacta al soporte.");
+            return;
+        }
+
+        const usuario ="felipe"
+        const contrasena ="felipe123"
+        if (usuario === document.getElementById("usuario").value     && contrasena === document.getElementById("contrasena").value) {
+            containerForm.style.display="none"
+            containerItems.style.display="flex"
+            alert("Inicio de sesión exitoso. Redirigiendo a otro menú.");
+        } else {
+            intentosIngreso++;
+            if (intentosIngreso >= 3) {
+                cuentaBloqueada = true;
+                alert("Tu cuenta ha sido bloqueada debido a múltiples intentos fallidos. Contacta al soporte.");
+            } else {
+                alert("Credenciales incorrectas. Intento " + intentosIngreso + " de 3.");
+            }
+        }
+    
+    }
+
+// Crear una variable global para realizar un seguimiento de las transacciones
+let transaccionesUsuario = [];
+
+function ahorrar() {
+    // Resto de la lógica de depósito
+    // ...
+
+    // Registra la transacción de depósito
+    transaccionesUsuario.push({ tipo: "Depósito", cantidad: cantidadDeposito });
+}
+
+function retirar() {
+    // Resto de la lógica de retiro
+    // ...
+
+    // Registra la transacción de retiro
+    transaccionesUsuario.push({ tipo: "Retiro", cantidad: cantidadRetiro });
+}
+
+function transferir() {
+    // Resto de la lógica de transferencia
+    // ...
+
+    // Registra la transacción de transferencia
+    transaccionesUsuario.push({ tipo: "Transferencia", destinatario: destinatario, cantidad: cantidadTransferencia });
+}
+
+function cerrarSesion() {
+    // Muestra un resumen de las transacciones realizadas
+    let resumen = "Resumen de transacciones:\n";
+
+    for (const transaccion of transaccionesUsuario) {
+        if (transaccion.tipo === "Depósito") {
+            resumen += `Depósito: $${transaccion.cantidad}\n`;
+        } else if (transaccion.tipo === "Retiro") {
+            resumen += `Retiro: $${transaccion.cantidad}\n`;
+        } else if (transaccion.tipo === "Transferencia") {
+            resumen += `Transferencia a ${transaccion.destinatario}: $${transaccion.cantidad}\n`;
+        }
+    }
+
+    // Muestra el saldo final
+    const usuario = document.getElementById("usuario").value;
+    const usuarioRegistrado = usuariosRegistrados.find(user => user.usuario === usuario);
+    resumen += `Saldo final: $${usuarioRegistrado.saldo}`;
+
+    alert(resumen);
+
+    // Limpia el arreglo de transacciones
+    transaccionesUsuario = [];
+
+    // Realiza la acción de cerrar sesión (puede ser ocultar elementos, redirigir, etc.)
+    containerForm.style.display = "block";
+    containerItems.style.display = "none";
+} 

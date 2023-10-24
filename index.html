@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Noto+Sans:ital,wght@1,100&family=Poppins:wght@100;300&family=Sura:wght@700&display=swap" rel="stylesheet">
+<title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="./img/logoUno.png" alt="">
+        <h1>SUCURSAL VIRTUAL</h1>
+        <div>
+            <a href="">NOSOTROS</a>
+            <a href="">CONTACTO</a>
+        </div>
+    </header>
+    <main class="container">
+        <section >
+            <section class="containerForm">
+                <form action="">
+                    <h1>Bienvenido a tu portal de transaciones</h1>
+                    <label for="usuario"></label>
+                    <input type="text" id="usuario" placeholder="usuario" required>
+                    <label for="contrasena"></label>
+                    <input type="password" id="contrasena" placeholder="Contraseña" required>
+                    <button type="button" id="ingresar" onclick="iniciarSesion()">Iniciar Sesion</button>
+                    <button type="button" id="registro" onclick="crearCuenta()">Crear Cuenta</button>            
+               </form>
+            </section>
+           <section class="containerRegistro">
+            <form action="">
+                <h1>Bienvenido al formulario registro</h1>
+                <h2>Por favor completa los campos correctamente</h2>
+                    <label for="nuevouUsario"></label>
+                    <input type="text" id="nuevoUsuario" placeholder="Nombre de usuario" required>
+                    <label for="nuevaContrasena"></label>
+                    <input type="password" id="nuevaContrasena" placeholder="Nueva Contraseña" required>
+                    <label for="confirmarContrasena"></label>
+                    <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+                    <input type="text" id="monto" placeholder="monto minimo 100.000" required>
+               </form> 
+               <button id="registrar" onclick="registrarme()">Registrarte</button>
+           </section>
+           <div id="monstrarForm()"></div>
+        </section>
+    
+        <section class="containerItems">
+            <section>
+               <img src="./img/resuelto.png" alt="">
+               <input type="button" id="consultar" onclick="consultarSaldo()" value="CONSULTAR SALDO" >
+           </section>
+           <section>
+               <img src="./img/dinero.png" alt="">
+               <input id="cantidadRetiro" placeholder="Cantidad a Retirar">
+               <input id="retirar" onclick="retirar()" type="button" value="RETIRAR DINERO">
+           </section>
+           <section>
+               <img src="./img/transferir.png" alt="">
+               <input id="destinatario" placeholder="Destinatario">
+               <input id="cantidadTransferencia" placeholder="Cantidad a Transferir">
+               <input id="transferir" onclick="tranferir()" type="button" value="TRANSFERIR DINERO">
+    
+           </section>
+           <section>
+               <img src="./img/depositar.png" alt="">
+               <input id="montoDeposito" type="number" placeholder="Cantidad a Depositar">
+               <input id="ahorrar" onclick="ahorar()" type="button" value="CONSIGNAR DINERO">
+           </section>
+            <button onclick="cerrarSesion()">Cerrar Sesion</button>
+        </section> 
+    </main>
+    
+  <script src="./js/main.js"></script>
+</body>
+</html>
