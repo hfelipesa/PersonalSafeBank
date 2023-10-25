@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Noto+Sans:ital,wght@1,100&family=Poppins:wght@100;300&family=Sura:wght@700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <img class="logo" src="./img/logoUno.png" alt="">
+        <img class="logo" src="./assets/img/logoUno.png" alt="">
         <h1>SUCURSAL VIRTUAL</h1>
         <div>
             <a href="">NOSOTROS</a>
@@ -23,10 +23,15 @@
             <section class="containerForm">
                 <form action="">
                     <h1>Bienvenido a tu portal de transaciones</h1>
-                    <label for="usuario"></label>
-                    <input type="text" id="usuario" placeholder="usuario" required>
-                    <label for="contrasena"></label>
-                    <input type="password" id="contrasena" placeholder="Contraseña" required>
+                    <label for="usuario">
+                        <input type="text" id="usuario" placeholder="Usuario" name="usuario" autocomplete="usuario" required>
+                        <span></span>
+                    </label>
+                    
+                    <label for="contrasena">
+                        <input type="password" id="contrasena" placeholder="Contraseña" name="contrasena" autocomplete="contrasena" required>
+                        <span></span>
+                    </label>
                     <button type="button" id="ingresar" onclick="iniciarSesion()">Iniciar Sesion</button>
                     <button type="button" id="registro" onclick="crearCuenta()">Crear Cuenta</button>            
                </form>
@@ -35,13 +40,23 @@
             <form action="">
                 <h1>Bienvenido al formulario registro</h1>
                 <h2>Por favor completa los campos correctamente</h2>
-                    <label for="nuevouUsario"></label>
-                    <input type="text" id="nuevoUsuario" placeholder="Nombre de usuario" required>
-                    <label for="nuevaContrasena"></label>
-                    <input type="password" id="nuevaContrasena" placeholder="Nueva Contraseña" required>
-                    <label for="confirmarContrasena"></label>
-                    <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-                    <input type="text" id="monto" placeholder="monto minimo 100.000" required>
+                <label for="nuevouUsario">
+                    <input type="text" id="nuevoUsuario" placeholder="Nombre de usuario" name="nuevoUsuario" autocomplete="nuevoUsuario" required>
+                    <span></span>
+                </label>
+                <label for="nuevaContrasena">
+                    <input type="password" id="nuevaContrasena" placeholder="Nueva Contraseña" name="nuevaContrasena" autocomplete="nuevoContrasena" required>
+                    <span></span>
+                </label>
+                   
+                <label for="confirmarContrasena">
+                    <input type="password" id="confirmarContrasena" placeholder="Confirmar Contraseña" name="confirmarContrasena" autocomplete="confirmarContrasena" required>
+                    <span></span>
+                </label>
+                <label for="monto">
+                    <input type="number" id="monto" placeholder="monto minimo 100.000" required>
+                    <span></span>
+                </label>
                </form> 
                <button id="registrar" onclick="registrarme()">Registrarte</button>
            </section>
@@ -50,30 +65,44 @@
     
         <section class="containerItems">
             <section>
-               <img src="./img/resuelto.png" alt="">
+               <img src="./assets/img/movil.png" alt="">
                <input type="button" id="consultar" onclick="consultarSaldo()" value="CONSULTAR SALDO" >
            </section>
            <section>
-               <img src="./img/dinero.png" alt="">
-               <input id="cantidadRetiro" placeholder="Cantidad a Retirar">
+               <img src="./assets/img/retiro-de-efectivo.png" alt="">
+               <label for="cantidadRetiro">
+                <input type="text" id="cantidadRetiro" placeholder="Cantidad a Retirar" name="cantidadRetiro" autocomplete="cantidadRetiro" required>
+                <span></span>
+           </label>
                <input id="retirar" onclick="retirar()" type="button" value="RETIRAR DINERO">
            </section>
            <section>
-               <img src="./img/transferir.png" alt="">
-               <input id="destinatario" placeholder="Destinatario">
-               <input id="cantidadTransferencia" placeholder="Cantidad a Transferir">
+               <img src="./assets/img/transferencia-de-dinero.png" alt="">
+               <label for="destinatario">
+                    <input type="text" id="destinatario" placeholder="Destinatario" name="destinatario" autocomplete="destinatario" required>
+                    <span></span>
+                </label>
+                <label for="cantidadTransferencia">
+                    <input type="text" id="cantidadTransferencia" placeholder="Cantidad a Transferir" name="cantidadTransferencia" autocomplete="cantidadTransferencia" required>
+                    <span></span>
+                <label for=""></label>
                <input id="transferir" onclick="tranferir()" type="button" value="TRANSFERIR DINERO">
     
            </section>
            <section>
-               <img src="./img/depositar.png" alt="">
-               <input id="montoDeposito" type="number" placeholder="Cantidad a Depositar">
+               <img src="./assets/img/hucha.png" alt="">
+               <label for="montoDeposito">
+                    <input id="montoDeposito" type="text" placeholder="Cantidad a Depositar" name="montoDeposito" autocomplete="montoDeposito" required>
+                    <span></span>
+                </label>
                <input id="ahorrar" onclick="ahorar()" type="button" value="CONSIGNAR DINERO">
            </section>
             <button onclick="cerrarSesion()">Cerrar Sesion</button>
         </section> 
     </main>
     
-  <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/validaciones.js"></script>  
 </body>
 </html>
