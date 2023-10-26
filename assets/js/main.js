@@ -28,7 +28,7 @@ function registrarme(){
         if (nuevaContrasena !== confirmarContrasena) {
             /* alert("Las contraseñas no coinciden.");  */
             swal.fire({
-                title:"Las contraseñas ingresadas no coinciden.",
+                title:"Las contraseña ingresada no coinciden.",
                 icon: 'error',
                 confirmButtonColor: '#0A0101',
                 timer:5000
@@ -55,7 +55,7 @@ function registrarme(){
         containerForm.style.display="block"
        /*  alert("Cuenta creada con éxito.") */
        swal.fire({
-        title:"Cuenta creada con éxito gracias por confirma en nosotros.",
+        title:"Cuenta creada con éxito gracias por confiar en nosotros.",
         icon: 'success',
         confirmButtonColor: '#0A0101',
         timer:5000
@@ -208,6 +208,17 @@ function tranferir(){
             const usuarioRegistrado = usuariosRegistrados.find(user => user.usuario === usuario);
             const destinatarioRegistrado = usuariosRegistrados.find(user => user.usuario === destinatario);
 
+            if(usuarioRegistrado == destinatarioRegistrado){
+                // alert("no se puede ")
+                swal.fire({
+                    title:"no se puede transferir a si mismo ",
+                    icon: 'error',
+                    confirmButtonColor: '#0A0101',
+                    timer:5000
+                })
+                return
+            }
+
             if (usuarioRegistrado && destinatarioRegistrado) {
                 if (cantidadTransferencia > 0 && cantidadTransferencia <= usuarioRegistrado.monto) {
                     usuarioRegistrado.monto -= cantidadTransferencia;
@@ -215,9 +226,10 @@ function tranferir(){
                     /* alert("Transferencia exitosa. Saldo restante: $" + usuarioRegistrado.monto); */
                     swal.fire({
                         title:"Transferencia exitosa. Saldo restante: $" + usuarioRegistrado.monto+"",
+                        Text:"Cuenta destino: " + destinatario+ "",
                         icon: 'success',
                         confirmButtonColor: '#0A0101',
-                        timer:5000
+                        timer:7000
                     })
                             
                 } else {
